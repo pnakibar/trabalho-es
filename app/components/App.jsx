@@ -1,5 +1,6 @@
 import React from 'react';
 import Customers from '../containers/Customers';
+import Appbar from './Appbar';
 
 /*
 const App = () => (
@@ -16,7 +17,8 @@ const style = {
 };
 
 const App = () => (
-  <div style={style}>
+  <div>
+    <Appbar />
     <Customers />
   </div>
 );
