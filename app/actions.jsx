@@ -8,6 +8,22 @@ export const COMPLETE_TODO = 'COMPLETE_TODO';
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
+export const ADD_CUSTOMER = 'ADD_CUSTOMER';
+
+export function addCustomer(customer) {
+  return {
+    type: ADD_CUSTOMER,
+    customer,
+  };
+}
+export const ADD_CUSTOMER_DIALOG_TOGGLE = 'ADD_CUSTOMER_DIALOG_TOGGLE';
+
+export function addCustomerDialogToggle() {
+  return {
+    type: ADD_CUSTOMER_DIALOG_TOGGLE,
+  };
+}
+
 /*
   Other Constants
  */

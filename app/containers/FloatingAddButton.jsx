@@ -1,6 +1,8 @@
 import React from 'react';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import { connect } from 'react-redux';
+import { addCustomerDialogToggle } from '../actions';
 
 const style = {
   position: 'fixed',
@@ -8,10 +10,15 @@ const style = {
   right: '6em',
 };
 
-const FloatingAddButton = () => (
-  <FloatingActionButton style={style}>
+let FloatingAddButton = ({ dispatch }) => (
+  <FloatingActionButton
+    style={style}
+    onClick={() => dispatch(addCustomerDialogToggle())}
+  >
     <ContentAdd />
   </FloatingActionButton>
 );
+
+FloatingAddButton = connect()(FloatingAddButton);
 
 export default FloatingAddButton;
