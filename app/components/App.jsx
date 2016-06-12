@@ -1,6 +1,8 @@
 import React from 'react';
 import Customers from '../containers/Customers';
 import Appbar from './Appbar';
+import FloatingAddButton from './FloatingAddButton';
+import Paper from 'material-ui/Paper';
 
 /*
 const App = () => (
@@ -20,6 +22,7 @@ const App = () => (
   <div>
     <Appbar />
     <Customers />
+    <FloatingAddButton />
   </div>
 );
 
