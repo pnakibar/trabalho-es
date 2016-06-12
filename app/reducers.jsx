@@ -9,36 +9,13 @@ const initialState = {
 };
 */
 
-let i = 0;
-
-function todos(state = List.of(), action) {
-  switch (action.type) {
-    case ADD_TODO:
-      return state.push(Map({ id: i++, text: action.text, completed: false }));
-    case TOGGLE_TODO:
-      return state.update(action.index, (t) => t.set('completed', !t.get('completed')));
-    default:
-      return state;
-  }
-}
-
-function visibilityFilter(state = 'SHOW_ALL', action) {
-  switch (action.type) {
-    case SET_VISIBILITY_FILTER:
-      return action.filter;
-    default:
-      return state;
-  }
-}
-import pics from './mockup';
-function picsReducer(state = pics) {
+import customers from './mockup';
+function customersReducer(state = customers) {
   return state;
 }
 
 const todoApp = combineReducers({
-  pics: picsReducer,
-  visibilityFilter,
-  todos,
+  customers: customersReducer,
 });
 
 export default todoApp;

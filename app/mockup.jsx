@@ -1,74 +1,8 @@
-let i = 0;
-const pics = [
-  {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-    place: 'Madrigal',
-  },
-  {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-  }, {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-  }, {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-  }, {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-  }, {
-    photo: 'http://lorempixel.com/600/337/nature/',
-    id: i,
-    title: 'TITLE TEXT',
-    dateAdded: new Date(),
-    likes: Math.floor((Math.random() * 100) + 1),
-    comments: Math.floor((Math.random() * 100) + 1),
-    user: {
-      name: `User ${i++}`,
-      avatar: '',
-    },
-  },
-];
+const { List, Map } = require('immutable');
+const customers = List([1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => Map({
+  id: i,
+  name: `name ${i}`,
+  email: `email${i}@email.com`,
+})));
 
-export default pics;
+export default customers;

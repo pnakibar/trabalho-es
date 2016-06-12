@@ -1,5 +1,5 @@
 import React from 'react';
-import VisiblePhotos from '../containers/VisiblePhotos';
+import Customers from '../containers/Customers';
 
 /*
 const App = () => (
@@ -17,7 +17,7 @@ const style = {
 
 const App = () => (
   <div style={style}>
-    <VisiblePhotos />
+    <Customers />
   </div>
 );
 
