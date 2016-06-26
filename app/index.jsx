@@ -1,14 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import todoApp from './reducers.jsx';
 import App from './components/App';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import thunk from 'redux-thunk';
 import './main.css';
 
-let store = createStore(todoApp);
+let store = createStore(todoApp, applyMiddleware(thunk));
 
 render(
   <Provider store={store}>

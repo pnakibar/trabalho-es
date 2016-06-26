@@ -1,6 +1,7 @@
 /*
   Action Types
  */
+import axios from 'axios';
 
 export const ADD_TODO = 'ADD_TODO';
 export const REMOVE_TODO = 'REMOVE_TODO';
@@ -9,6 +10,24 @@ export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER';
 export const TOGGLE_TODO = 'TOGGLE_TODO';
 
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
+export const RETRIEVE_CUSTOMERS = 'RETRIEVE_CUSTOMERS';
+export const SET_CUSTOMERS = 'SET_CUSTOMERS';
+
+export function setCustomers(customers) {
+  return {
+    type: SET_CUSTOMERS,
+    customers,
+  };
+}
+
+export function retrieveCustomers() {
+  return (dispatch) => {
+    axios.get('/customers')
+      .then(({ data }) => {
+        return dispatch(setCustomers(data));
+      });
+  };
+}
 
 export function addCustomer(customer) {
   return {
@@ -16,6 +35,9 @@ export function addCustomer(customer) {
     customer,
   };
 }
+
+
+
 export const ADD_CUSTOMER_DIALOG_TOGGLE = 'ADD_CUSTOMER_DIALOG_TOGGLE';
 
 export function addCustomerDialogToggle() {

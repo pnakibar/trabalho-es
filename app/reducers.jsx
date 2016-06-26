@@ -1,19 +1,24 @@
-const { List, Map } = require('immutable');
+// const { List, Map } = require('immutable');
+import Immutable, { List, Map } from 'immutable';
 // const Immutable = require('immutable')
-import { ADD_CUSTOMER, ADD_CUSTOMER_DIALOG_TOGGLE } from './actions';
+import {
+  ADD_CUSTOMER,
+  ADD_CUSTOMER_DIALOG_TOGGLE,
+  SET_CUSTOMERS,
+} from './actions';
 import { combineReducers } from 'redux-immutable';
-/*
-const initialState = {
-  visibilityFilter: VisibilityFilters.SHOW_ALL,
-  todos: List.of(),
-};
-*/
 
-import customers from './mockup';
-function customersReducer(state = customers, action) {
+
+const initialState = new Map({
+  customers: new List([]),
+});
+
+function customersReducer(state = initialState, action) {
   switch (action.type) {
     case ADD_CUSTOMER:
-      return state.push(Map(action.customer));
+      return state.get('customers').push(new Map(action.customer));
+    case SET_CUSTOMERS:
+      return state.set('customers', Immutable.fromJS(action.customers));
     default:
       return state;
   }
@@ -23,7 +28,6 @@ const generalUI = Map({
 });
 
 function generalUIReducer(state = generalUI, action) {
-  console.log(action);
   switch (action.type) {
     case ADD_CUSTOMER_DIALOG_TOGGLE:
       return state.set('addCustomerDialog', !state.get('addCustomerDialog'));

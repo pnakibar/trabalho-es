@@ -11,9 +11,9 @@ app.use(mount('/', static('build/')));
 
 let db = [
   { id: 0, name: 'name 1', email: 'email1@email.com' },
-  { id: Date.now(), name: 'name 2', email: 'email2@email.com' },
-  { id: Date.now(), name: 'name 3', email: 'email3@email.com' },
-  { id: Date.now(), name: 'name 4', email: 'email4@email.com' },
+  { id: 1, name: 'name 2', email: 'email2@email.com' },
+  { id: 2, name: 'name 3', email: 'email3@email.com' },
+  { id: 3, name: 'name 4', email: 'email4@email.com' },
 ];
 app.use(_.get('/customers', function *() {
   yield this.body = db;
