@@ -12,6 +12,7 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export const ADD_CUSTOMER = 'ADD_CUSTOMER';
 export const RETRIEVE_CUSTOMERS = 'RETRIEVE_CUSTOMERS';
 export const SET_CUSTOMERS = 'SET_CUSTOMERS';
+export const ADD_CUSTOMER_DIALOG_TOGGLE = 'ADD_CUSTOMER_DIALOG_TOGGLE';
 
 export function setCustomers(customers) {
   return {
@@ -23,26 +24,20 @@ export function setCustomers(customers) {
 export function retrieveCustomers() {
   return (dispatch) => {
     axios.get('/customers')
-      .then(({ data }) => {
-        return dispatch(setCustomers(data));
-      });
+      .then(({ data }) => dispatch(setCustomers(data)));
   };
 }
-
-export function addCustomer(customer) {
-  return {
-    type: ADD_CUSTOMER,
-    customer,
-  };
-}
-
-
-
-export const ADD_CUSTOMER_DIALOG_TOGGLE = 'ADD_CUSTOMER_DIALOG_TOGGLE';
 
 export function addCustomerDialogToggle() {
   return {
     type: ADD_CUSTOMER_DIALOG_TOGGLE,
+  };
+}
+
+export function addCustomer(customer) {
+  return (dispatch) => {
+    axios.put('/customers', customer)
+      .then(() => dispatch(retrieveCustomers()));
   };
 }
 
