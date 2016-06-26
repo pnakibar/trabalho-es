@@ -8,7 +8,8 @@
     "build": "webpack",
     "start": "webpack-dev-server",
     "devtool": "source-map",
-    "publish": "rm -rf node_modules/gh-pages/.cache && npm run build && node publish_to_ghpages.js"
+    "publish": "rm -rf node_modules/gh-pages/.cache && npm run build && node publish_to_ghpages.js",
+    "dev-server": "nodemon server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -45,8 +46,11 @@
     "flexboxgrid": "^6.3.0",
     "font-awesome": "^4.6.1",
     "immutable": "^3.8.1",
+    "koa-bodyparser": "^2.2.0",
+    "koa-route": "^2.4.2",
     "material-ui": "^0.15.0-beta.2",
     "mocha": "^2.4.5",
+    "nodemon": "^1.9.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-flexbox-grid": "^0.9.6",
