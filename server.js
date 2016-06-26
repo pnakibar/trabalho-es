@@ -1,9 +1,12 @@
 const koa = require('koa');
 const bodyParser = require('koa-bodyparser');
 const _ = require('koa-route');
-const app = koa();
+const static = require('koa-static');
+const mount = require('koa-mount');
+const app = new koa();
 
 app.use(bodyParser());
+app.use(mount('/', static('build/')));
 
 
 let db = [
@@ -49,16 +52,6 @@ app.use(_.put('/customers/', function *() {
   db.push(newCustomer);
   yield this.body = newCustomer;
 }));
-
-app.use(function *() {
-  this.body = 'Hi!';
-});
-
-/*
-app.use(function *() {
-  this.body = 'Hello World';
-});
-*/
 
 
 app.listen(3000);

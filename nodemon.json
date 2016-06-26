@@ -1,0 +1,7 @@
+{
+  "verbose": true,
+  "ignore": ["build/*", "fixtures/*"],
+  "events": {
+    "restart": "npm run build"
+  }
+}
