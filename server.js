@@ -43,6 +43,14 @@ app.use(_.put('/customers/', function *() {
     };
     return;
   }
+  const emailRegex = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i
+  if (!email.match(emailRegex)) {
+    this.status = 400;
+    yield this.body = {
+      error: 'InvalidEmail',
+    }
+    return;
+  }
   const id = Date.now();
   const newCustomer = {
     id,
@@ -55,3 +63,5 @@ app.use(_.put('/customers/', function *() {
 
 
 app.listen(3000);
+
+module.exports = app;
